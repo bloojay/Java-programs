@@ -1,30 +1,57 @@
+import java .util.*;
 public class series
 {
-  public static void pell(int i)
-  {
-    int a=1,b=2;
-    System.out.print(a+","+b);
-    for(int j=1;j<=(i-2);j++)
+ double sum=0,i=1,j=1,n=0,a=0,k;
+ public double Series(double n)
+ {
+    //this.n=n;
+    if(1>n)
+    return 0;
+    else
     {
-     int c=a+2*b;
-     System.out.print(","+c);
-     a=b;
-     b=c;
+     sum=sum+1.0/n;
+     //i++;
+     n--;
+     //this.Series(n);
+     return sum+Series(n);
     }
-    System.out.println();
-  }  
-   public static void fibonacci(int k)
-   {
-    int a=0,b=1;
-    System.out.print(a+","+b);
-    for(int j=1;j<=(k-2);j++)
+ }
+ 
+ public double Series(double n,double a)
+ {
+    //this.a=a;
+    //this.n=n;
+    if(n<1)
+    return 0;
+    else
     {
-     int c=a+b;
-     System.out.print(","+c);
-     a=b;
-     b=c;
+     sum=i/(Math.pow(a,(i+1)));
+     //j++;
+     i+=3;
+     n--;
+     //this.Series(n,a);
+     return sum+Series(n,a);
     }
-    System.out.println();
-   }
+ }
+ public void main(int choice)
+ {
+  Scanner sc=new Scanner(System.in);
+  i=1;
+  j=1;
   
+  if(choice==1) 
+  {
+   n=sc.nextDouble();
+   k=this.Series(n);
+   System.out.println("SUM "+k);
+  }
+  else if(choice==2)
+  {
+   n=sc.nextDouble();
+   a=sc.nextDouble();
+   k=this.Series(n,a);
+   System.out.println("SUM  "+k);
+  }
+  sum=0;
+ }
 }
